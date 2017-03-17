@@ -85,6 +85,13 @@ describe("Thermostat", function(){
        thermostat.powerSavingOn();
        expect(thermostat.maximumTemperature).toEqual(25);
      });
+
+     it("changes current temperature if above max temperature when switched on", function() {
+       thermostat.powerSavingOff();
+       thermostat.currentTemperature = 30;
+       thermostat.powerSavingOn();
+       expect(thermostat.currentTemperature).toEqual(25);
+     })
    });
 
     describe("check energy usage", function(){

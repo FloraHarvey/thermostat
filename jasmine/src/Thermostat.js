@@ -39,6 +39,9 @@ Thermostat.prototype.powerSavingOff = function() {
 Thermostat.prototype.powerSavingOn = function() {
   this.powerSavingMode = true;
   this._determineMaxTemperature();
+  if (this.currentTemperature > this.maximumTemperature) {
+    this.currentTemperature = this.maximumTemperature
+  };
 };
 
 Thermostat.prototype._determineMaxTemperature = function() {
